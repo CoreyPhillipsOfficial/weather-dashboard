@@ -6,3 +6,7 @@
     width: 200px;
     margin: 2px 0;
 }
+
+#currentWeather {
+    border: 2px;
+}
