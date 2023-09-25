@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="d-flex flex-column">
+    <nav class="navbar navbar-expand-lg navbar-light"
+        style="background: linear-gradient(to left, #251360, #4659B8); margin: 4px;">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 text-white h1">Weather Dashboard</span>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4">
+                    <form>
+                        <div class="form-group">
+                            <label for="searchInput">Search for a city:</label>
+                            <input type="text" class="form-control id=cityInput" id="searchInput"
+                                placeholder="City name">
+                        </div>
+                        <button class="btn btn-primary" id="searchButton">Search</button>
+                    </form>
+                </div>
+                <div class="col-6">
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
