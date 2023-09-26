@@ -20,7 +20,7 @@
     <main>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-4">
+                <div class="col-3">
                     <form>
                         <div class="form-group">
                             <label for="searchInput">Search for a city:</label>
@@ -30,7 +30,7 @@
                         <button class="btn btn-primary" id="searchButton">Search</button>
                     </form>
                 </div>
-                <div class="col-6">
+                <div class="col-8">
                     <section class="border" id="currentWeather">
                         <h1 id="cityNameAndDate">New York <span id="currentDate"></span></h1>
                         <p id="currentTemp">Temp: </p>
@@ -39,41 +39,43 @@
                     </section>
                     <section id="forecastWeather">
                         <h2>5-Day Forecast:</h2>
-                        <span class="forecastDay" id="day-1">
-                            <h4 id="dateplus1"></h4>
-                            <div id="day-1-img"></div>
-                            <p>Temp: <span id="temp-1"></span></p>
-                            <p>Wind: <span id="wind-1"></span></p>
-                            <p>Humidity: <span id="humidity-1"></span></p>
-                        </span>
-                        <span class="forecastDay" id="day-2">
-                            <h4 id="dateplus2"></h4>
-                            <div id="day-2-img"></div>
-                            <p>Temp: <span id="temp-2"></span></p>
-                            <p>Wind: <span id="wind-2"></span></p>
-                            <p>Humidity: <span id="humidity-2"></span></p>
-                        </span>
-                        <span class="forecastDay" id="day-3">
-                            <h4 id="dateplus3"></h4>
-                            <div id="day-3-img"></div>
-                            <p>Temp: <span id="temp-3"></span></p>
-                            <p>Wind: <span id="wind-3"></span></p>
-                            <p>Humidity: <span id="humidity-3"></span></p>
-                        </span>
-                        <span class="forecastDay" id="day-4">
-                            <h4 id="dateplus4"></h4>
-                            <div id="day-4-img"></div>
-                            <p>Temp: <span id="temp-4"></span></p>
-                            <p>Wind: <span id="wind-4"></span></p>
-                            <p>Humidity: <span id="humidity-4"></span></p>
-                        </span>
-                        <span class="forecastDay" id="day-">
-                            <h4 id="dateplus"></h4>
-                            <div id="day--img"></div>
-                            <p>Temp: <span id="temp-"></span></p>
-                            <p>Wind: <span id="wind-"></span></p>
-                            <p>Humidity: <span id="humidity-"></span></p>
-                        </span>
+                        <div class="forecastContainer">
+                            <span class="forecastDay" id="day-1">
+                                <h4 id="dateplus1"></h4>
+                                <div id="day-1-img"></div>
+                                <p>Temp: <span id="temp-1"></span></p>
+                                <p>Wind: <span id="wind-1"></span></p>
+                                <p>Humidity: <span id="humidity-1"></span></p>
+                            </span>
+                            <span class="forecastDay" id="day-2">
+                                <h4 id="dateplus2"></h4>
+                                <div id="day-2-img"></div>
+                                <p>Temp: <span id="temp-2"></span></p>
+                                <p>Wind: <span id="wind-2"></span></p>
+                                <p>Humidity: <span id="humidity-2"></span></p>
+                            </span>
+                            <span class="forecastDay" id="day-3">
+                                <h4 id="dateplus3"></h4>
+                                <div id="day-3-img"></div>
+                                <p>Temp: <span id="temp-3"></span></p>
+                                <p>Wind: <span id="wind-3"></span></p>
+                                <p>Humidity: <span id="humidity-3"></span></p>
+                            </span>
+                            <span class="forecastDay" id="day-4">
+                                <h4 id="dateplus4"></h4>
+                                <div id="day-4-img"></div>
+                                <p>Temp: <span id="temp-4"></span></p>
+                                <p>Wind: <span id="wind-4"></span></p>
+                                <p>Humidity: <span id="humidity-4"></span></p>
+                            </span>
+                            <span class="forecastDay" id="day-">
+                                <h4 id="dateplus"></h4>
+                                <div id="day--img"></div>
+                                <p>Temp: <span id="temp-"></span></p>
+                                <p>Wind: <span id="wind-"></span></p>
+                                <p>Humidity: <span id="humidity-"></span></p>
+                            </span>
+                        </div>
                     </section>
                 </div>
             </div>

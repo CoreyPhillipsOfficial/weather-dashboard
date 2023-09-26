@@ -1,9 +1,9 @@
 var weatherApiUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=1cb4efda358c457a3432445aaf5c171b';
-var currentWeatherUrl = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m';
-var ApiKey = '1cb4efda358c457a3432445aaf5c171b';
+var currentWeatherUrl = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m&appid=1cb4efda358c457a3432445aaf5c171b';
+var ApiKey = '&appid=1cb4efda358c457a3432445aaf5c171b';
 // var searchButton = document.
 var city = 'NewYork';
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + ApiKey;
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + ApiKey;
 
 
 
@@ -15,6 +15,9 @@ fetch(currentWeatherUrl + ApiKey)
     .then(function (data) {
         // Process the API response data here
         console.log(data);
+        console.log(data.latitude);
+        console.log(data.longitude);
+        getWeatherData(data.latitude, data.longitude);
     })
     .catch(function (error) {
         // Handle any errors that occur during the request
