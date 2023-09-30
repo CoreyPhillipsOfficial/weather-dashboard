@@ -1,12 +1,11 @@
 # weather-dashboard
 
-## In this application, I created a weather dashboard. The user types a city of their choice in the search bar. The application gives them the current temperature, wind speed, and humidity. It also shows the forecast for the next five days.
+## In this application, I created a weather dashboard. The user types a city of their choice in the search bar. The application gives them the current temperature, wind speed, and humidity. It also shows the forecast for the next five days. The cities searched are stored in the user's local storage. They show up as buttons underneath the search button, so the user can easily check their recently searched cities.
 
-Link: <a href="https://coreyphillipsofficial.github.io/javascript_quiz/">Weather Dashboard</a> 
+Link: <a href="https://coreyphillipsofficial.github.io/weather-dashboard/">Weather Dashboard</a> 
 
-![Screenshot](./assets/main-page-screenshot.png)
-![Screenshot](./assets/question-screenshot.png)
-![Screenshot](./assets/highscores-screenshot.png)
+![Screenshot](./assets/weather-dashboard-screenshot.png)
+
 
 
 ## Installation

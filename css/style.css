@@ -7,13 +7,17 @@
     margin: 2px 0;
 }
 
+#searchHistory {
+    flex-direction: column;
+}
+
 .forecastContainer {
     display: flex;
 }
 
 .forecastDay {
     width: 300px;
-    height: 150px;
+    height: 200px;
     background-color: #323D4E;
     color: #fff;
     margin: 2px;

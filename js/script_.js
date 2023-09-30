@@ -16,7 +16,7 @@ $(document).ready(function () {
     });
 
     // Get current date
-    const d = dayjs().format('mm/DD/YYYY');
+    const d = dayjs().format('MM/DD/YYYY');
     $('#currentDay').text(d);
 
     // Get current weather
@@ -33,6 +33,15 @@ $(document).ready(function () {
                 displayCurrentWeather(data);
                 getForecast(data.coord.lat, data.coord.lon);
                 console.log(data);
+
+                // Retrieve existing list of searched cities from local storage
+                const storedCities = JSON.parse(localStorage.getItem('storedCities')) || [];
+
+                // Add searched city to array in local storage
+                storedCities.push(city);
+
+                // Store updated array in local storage
+                localStorage.setItem('storedCities', JSON.stringify(storedCities));
             })
             .catch(function (error) {
                 alert(error)
@@ -44,7 +53,7 @@ $(document).ready(function () {
             return;
         }
 
-        // Convert wind speed to miles/hour
+        // Convert wind speed to miles/hour and temp to Farenheit
         const windSpeedMph = currentData.wind && currentData.wind.speed ? currentData.wind.speed * 2.237 : 0;
         const tempFahrenheit = (currentData.main.temp - 273.15) * 9 / 5 + 32;
 
@@ -81,10 +90,72 @@ $(document).ready(function () {
             });
     }
 
-    function displayForecast() {
-        // Display the forecast data
+    function displayForecast(forecastData) {
+        if (!forecastData.list) {
+            return;
+        }
 
+        // Loop over forecast data
+        forecastData.list.forEach(function (forecast, index) {
+            // Skip current day's forecast
+            if (index === 0) {
+                return;
+            }
+
+            // Get date and time of forecast
+            const forecastDate = dayjs(forecast.dt_txt);
+
+            //Get forecast at noon each day
+            if (forecastDate.hour() === 12) {
+                //Get index for corresponding <span>
+                const spanIndex = Math.floor(index / 8) + 1;
+
+                // Target specific elements within each <span>
+                const forecastDay = $(`#day-${spanIndex}`);
+                const dateEl = forecastDay.find(`#dateplus${spanIndex}`);
+                const iconEl = forecastDay.find(`#day-${spanIndex}-img`);
+                const tempEl = forecastDay.find(`#temp-${spanIndex}`);
+                const windEl = forecastDay.find(`#wind-${spanIndex}`);
+                const humidityEl = forecastDay.find(`#humidity-${spanIndex}`);
+
+                //Format date
+                const formattedDate = forecastDate.format('MM/DD/YYYY');
+
+                // Convert wind speed to miles/hour and temp to Farenheit
+                const windSpeedMph = forecast.wind.speed * 2.237;
+                const tempFarenheit = (forecast.main.temp - 273.15) * 9 / 5 + 32;
+
+
+                //Display forecast
+                dateEl.text(formattedDate);
+                iconEl.html(`<img src="http://openweathermap.org/img/w/${forecast.weather[0].icon}.png" alt="Weather Icon">`);
+                tempEl.text(`${tempFarenheit.toFixed(2)}°F`);
+                windEl.text(`${windSpeedMph.toFixed(2)}mph`);
+                humidityEl.text(`${forecast.main.humidity}%`);
+            }
+
+        });
     }
+    // Display search history buttons
+    function displaySearchHistory() {
+        const storedCities = JSON.parse(localStorage.getItem('storedCities')) || [];
+        const searchHistory = $('#searchHistory');
+
+        searchHistory.empty();
+
+        storedCities.forEach(function (city) {
+            const button = $('<button>').addClass('btn btn-secondary btn-sm mb-2').text(city);
+            button.on('click', function () {
+                getCurrentWeather(city); // Trigger search for the clicked city
+            });
+
+            searchHistory.append(button); // Add the button to the search history div
+        });
+    }
+
+    // Call the displaySearchHistory function on page load
+    displaySearchHistory();
+
 
 });
 
